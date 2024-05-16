@@ -545,6 +545,120 @@ public class Interfaz extends JFrame {
             }
         };
 
+        ActionListener oyenteDeAccionboton10 = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae){
+                etiqueta1.setVisible(false);
+                boton1.setVisible(false);
+                boton1.setEnabled(false);
+                etiqueta2.setVisible(false);
+                boton2.setVisible(false);
+                boton2.setEnabled(false);
+                etiqueta3.setVisible(false);
+                boton3.setVisible(false);
+                boton3.setEnabled(false);
+                etiqueta5.setVisible(false);
+                boton10.setVisible(false);
+                boton10.setEnabled(false);
+                etiqueta6.setVisible(true);
+                campoDeTexto9.setVisible(true);
+                campoDeTexto9.setEnabled(true);
+                etiqueta7.setVisible(true);
+                campodeTexto10.setVisible(true);
+                campodeTexto10.setEnabled(true);
+                boton11.setVisible(true);
+                boton11.setEnabled(true);
+                boton12.setVisible(true);
+                boton12.setEnabled(true);
+                boton13.setVisible(true);
+                boton13.setEnabled(true);
+            }
+        };
+
+        ActionListener oyenteDeAccionboton11 = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae){
+                String nombreABuscar = campoDeTexto9.getText();
+                String cantidadAanadir = campodeTexto10.getText();
+                boolean productoHaSidoEncontrado = false;
+                for (Producto productofor:listadeProductos){
+                    if (productofor.getNombre().equals(nombreABuscar)){
+                        int cantidad = productofor.getCantidad();
+                        int nuevaCantidad = cantidad + Integer.parseInt(cantidadAanadir);
+                        productofor.setCantidad(nuevaCantidad);
+                        productoHaSidoEncontrado = true;
+                    }
+                }
+                if (productoHaSidoEncontrado) {
+                    JOptionPane.showMessageDialog(panel, "Se ha añadido la cantidad correctamente", "", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else{
+                    JOptionPane.showMessageDialog(panel, "No existen productos en inventario con el nombre ingresado por el usuario", "", JOptionPane.ERROR_MESSAGE);
+                }
+                campoDeTexto9.setText("");
+                campodeTexto10.setText("");
+                
+            }
+        };
+
+        ActionListener oyenteDeAccionboton12 = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae){
+                String nombreABuscar = campoDeTexto9.getText();
+                String cantidadAEliminar = campodeTexto10.getText();
+                boolean productoHaSidoEncontrado = false;
+                for (Producto productofor:listadeProductos){
+                    if (productofor.getNombre().equals(nombreABuscar)){
+                        int cantidad = productofor.getCantidad();
+                        int nuevaCantidad = cantidad - Integer.parseInt(cantidadAEliminar);
+                        productofor.setCantidad(nuevaCantidad);
+                        productoHaSidoEncontrado = true;
+                    }
+                }
+                if (productoHaSidoEncontrado) {
+                    JOptionPane.showMessageDialog(panel, "Se ha restado la cantidad correctamente", "", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else{
+                    JOptionPane.showMessageDialog(panel, "No existen productos en inventario con el nombre ingresado por el usuario", "", JOptionPane.ERROR_MESSAGE);
+                }
+                campoDeTexto9.setText("");
+                campodeTexto10.setText("");
+                
+            }
+        };
+
+        ActionListener oyenteDeAccionboton13 = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae){
+                etiqueta1.setVisible(true);
+                boton1.setVisible(true); 
+                boton1.setEnabled(true);
+                etiqueta2.setVisible(true);
+                boton2.setVisible(true);
+                boton2.setEnabled(true);
+                etiqueta3.setVisible(true);
+                boton3.setVisible(true);
+                boton3.setEnabled(true);
+                etiqueta5.setVisible(true);
+                boton10.setVisible(true);
+                boton10.setEnabled(true); 
+                etiqueta6.setVisible(false);
+                campoDeTexto9.setVisible(false);
+                campoDeTexto9.setEnabled(false);
+                etiqueta7.setVisible(false);
+                campodeTexto10.setVisible(false);
+                campodeTexto10.setEnabled(false);
+                boton11.setVisible(false);
+                boton11.setEnabled(false);
+                boton12.setVisible(false);
+                boton12.setEnabled(false);
+                boton13.setVisible(false);
+                boton13.setEnabled(false);
+                campoDeTexto9.setText("");
+                campodeTexto10.setText("");
+            }
+        };
+
         boton1.addActionListener(oyenteDeAccionboton1);
         boton2.addActionListener(oyenteDeAccionboton2);
         boton3.addActionListener(oyenteDeAccionboton3);
@@ -554,5 +668,9 @@ public class Interfaz extends JFrame {
         boton7.addActionListener(oyenteDeAccionboton7);
         boton8.addActionListener(oyenteDeAccionboton8);
         boton9.addActionListener(oyenteDeAccionboton9);
+        boton10.addActionListener(oyenteDeAccionboton10);
+        boton11.addActionListener(oyenteDeAccionboton11);
+        boton12.addActionListener(oyenteDeAccionboton12);
+        boton13.addActionListener(oyenteDeAccionboton13);
     }
 }
